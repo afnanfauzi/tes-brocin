@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('/mahasiswa','MahasiswaController', ['names' => 'mahasiswa'])->except([
+    'create', 'show', 'update'
+]);
+
+Route::resource('/dosen','DosenController', ['names' => 'dosen'])->except([
+    'create', 'destroy', 'update'
+]);
