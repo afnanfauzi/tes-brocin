@@ -118,16 +118,16 @@
                         name: 'DT_RowIndex', orderable: false,searchable: false
                     },
                     {
-                        data: 'kd_dosen', 
-                        name: 'kd_dosen' 
+                        data: 'dosen.kd_dosen', 
+                        name: 'dosen.kd_dosen' 
                     },
                     {
-                        data: 'nama_dosen', 
-                        name: 'nama_dosen' 
+                        data: 'dosen.nama_dosen', 
+                        name: 'dosen.nama_dosen' 
                     },
                     {
-                        data: 'alamat', 
-                        name: 'alamat' 
+                        data: 'dosen.alamat', 
+                        name: 'dosen.alamat' 
                     },
                     {
                         data: 'action',

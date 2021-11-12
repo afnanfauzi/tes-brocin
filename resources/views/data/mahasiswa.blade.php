@@ -177,20 +177,20 @@
                         name: 'DT_RowIndex', orderable: false,searchable: false
                     },
                     {
-                        data: 'nim', 
-                        name: 'nim' 
+                        data: 'mahasiswa.nim', 
+                        name: 'mahasiswa.nim' 
                     },
                     {
-                        data: 'nama', 
-                        name: 'nama' 
+                        data: 'mahasiswa.nama', 
+                        name: 'mahasiswa.nama' 
                     },
                     {
-                        data: 'alamat', 
-                        name: 'alamat' 
+                        data: 'mahasiswa.alamat', 
+                        name: 'mahasiswa.alamat' 
                     },
                     {
-                        data: 'prodi.nama_prodi', 
-                        name: 'prodi.nama_prodi' 
+                        data: 'nama_prodi', 
+                        name: 'nama_prodi' 
                     },
                     {
                         data: 'action',
@@ -273,7 +273,7 @@
                 var $dropdown = $("#kd_prodi");
                 console.log($dropdown);
                 $.each(result, function() {
-                    $dropdown.append($("<option />").val(this.kd_prodi).text(this.nama_prodi));
+                    $dropdown.append($("<option />").val(data.kd_prodi).text(data.nama_prodi));
                 });
                 // $('#kd_prodi').val(data.kd_prodi);
                 // $('#alamat').val(data.alamat);

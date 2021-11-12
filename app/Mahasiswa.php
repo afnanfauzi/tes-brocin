@@ -11,8 +11,13 @@ class Mahasiswa extends Model
 
     // protected $primaryKey = 'nim';
 
+    // public function prodi()
+    // {
+    //     return $this->belongsTo('App\Prodi', 'kd_prodi');
+    // }
+
     public function prodi()
     {
-        return $this->belongsTo('App\Prodi', 'kd_prodi');
+        return $this->hasMany('App\Prodi');
     }
 }

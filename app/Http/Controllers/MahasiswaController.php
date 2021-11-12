@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mahasiswa;
+use App\Prodi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
 
-        $mahasiswa = Mahasiswa::with('prodi')->get();
+        $mahasiswa = Prodi::with('mahasiswa')->get();
         if($request->ajax()){
             return datatables()->of($mahasiswa)
             ->addColumn('action', function($data){
@@ -152,10 +153,7 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $mahasiswa = Mahasiswa::where('id',$id)->get();
-        
-        // dd($mahasiswa[0]->foto);
-        ImageHelper::deleteImage($mahasiswa[0]->foto);
-        $mahasiswa->each->delete();
+        $mahasiswa->delete();
      
         return response()->json($mahasiswa);
     }

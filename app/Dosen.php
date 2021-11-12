@@ -12,8 +12,13 @@ class Dosen extends Model
     // protected $primaryKey = 'kd_dosen';
 
 
+    // public function prodi()
+    // {
+    //     return $this->belongsTo('App\Prodi', 'kd_dosen');
+    // }
+
     public function prodi()
     {
-        return $this->belongsTo('App\Prodi', 'kd_dosen');
+        return $this->hasOne('App\Prodi');
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Dosen;
+use App\Mahasiswa;
+use App\Prodi;
 use Illuminate\Http\Request;
 
 class DosenController extends Controller
@@ -10,7 +12,7 @@ class DosenController extends Controller
     public function index(Request $request)
     {
 
-        $dosen = Dosen::with('prodi')->get();
+        $dosen = Prodi::with(['dosen','mahasiswa'])->get();
         if($request->ajax()){
             return datatables()->of($dosen)
             ->addColumn('action', function($data){
@@ -28,14 +30,17 @@ class DosenController extends Controller
     public function show($id)
     {
         $where = array('id' => $id);
-        $post  =  Dosen::with('prodi')->where($where)->get();
+        $where2 = array('kd_prodi'=>$id);
+        $post  =  Prodi::with('dosen')->where($where)->get();
+        $mahasiswa = Prodi::with('Mahasiswa')->where($where2)->get();
 
         if ($post) {
 
             return response()->json([
                 'success' => true,
                 'message' => 'Data Dosen Ada',
-                'success' => $post,
+                'dosen' => $post,
+                'mahasiswa' => $mahasiswa,
             ], 200);
         } else {
             return response()->json([

@@ -12,13 +12,23 @@ class Prodi extends Model
     // protected $primaryKey = 'kd_prodi';
 
 
+    // public function dosen()
+    // {
+    //     return $this->hasOne('App\Dosen', 'kd_dosen', 'kd_prodi');
+    // }
+
+    // public function mahasiswa()
+    // {
+    //     return $this->hasMany('App\Mahasiswa');
+    // }
+
     public function dosen()
     {
-        return $this->hasOne('App\Dosen', 'kd_dosen', 'kd_prodi');
+        return $this->belongsTo('App\Dosen', 'kd_dosen');
     }
 
     public function mahasiswa()
     {
-        return $this->hasMany('App\Mahasiswa');
+        return $this->belongsTo('App\Mahasiswa', 'kd_prodi');
     }
 }
