@@ -17,7 +17,7 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
 
-        $mahasiswa = Mahasiswa::with('prodi')->get();
+        $mahasiswa = Mahasiswa::all();
         if($request->ajax()){
             return datatables()->of($mahasiswa)
             ->addColumn('action', function($data){

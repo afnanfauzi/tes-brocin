@@ -27,7 +27,7 @@
                   <table class="table table-striped table-bordered dt-responsive nowrap" id="table-mahasiswa" style="width:100%">
                     <thead>
                     <tr>
-                        <th></th>
+                        <!-- <th></th> -->
                         <th>No</th>
                         <th>NIM</th>
                         <th>Nama</th>
@@ -168,25 +168,26 @@
                     url: "{{ route('mahasiswa.index') }}",
                     type: 'GET'
                 },
-                columns: [{
-                        data: 'id', 
-                        name: 'id', 'visible': false
-                    },
+                columns: [
+                    // {
+                    //     data: 'id', 
+                    //     name: 'id', 'visible': false
+                    // },
                     {
                         data: 'DT_RowIndex', 
                         name: 'DT_RowIndex', orderable: false,searchable: false
                     },
                     {
-                        data: 'mahasiswa.nim', 
-                        name: 'mahasiswa.nim' 
+                        data: 'nim', 
+                        name: 'nim' 
                     },
                     {
-                        data: 'mahasiswa.nama', 
-                        name: 'mahasiswa.nama' 
+                        data: 'nama', 
+                        name: 'nama' 
                     },
                     {
-                        data: 'mahasiswa.alamat', 
-                        name: 'mahasiswa.alamat' 
+                        data: 'alamat', 
+                        name: 'alamat' 
                     },
                     {
                         data: 'nama_prodi', 
