@@ -9,7 +9,14 @@ class Mahasiswa extends Model
     protected $table= 'mahasiswa';
     protected $guarded = [];
 
-    // protected $primaryKey = 'nim';
+    // if your key name is not 'id'
+    // you can also set this to null if you don't have a primary key
+    protected $primaryKey = 'nim';
+
+    public $incrementing = false;
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
 
     // public function prodi()
     // {

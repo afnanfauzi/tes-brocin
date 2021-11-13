@@ -17,7 +17,7 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
 
-        $mahasiswa = Prodi::with('mahasiswa')->get();
+        $mahasiswa = Mahasiswa::with('prodi')->get();
         if($request->ajax()){
             return datatables()->of($mahasiswa)
             ->addColumn('action', function($data){
@@ -153,7 +153,7 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $mahasiswa = Mahasiswa::where('id',$id)->get();
-        $mahasiswa->delete();
+        $mahasiswa->each->delete();
      
         return response()->json($mahasiswa);
     }

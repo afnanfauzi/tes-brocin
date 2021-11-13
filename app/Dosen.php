@@ -9,7 +9,14 @@ class Dosen extends Model
     protected $table= 'dosen';
     protected $guarded = [];
 
-    // protected $primaryKey = 'kd_dosen';
+    // if your key name is not 'id'
+    // you can also set this to null if you don't have a primary key
+    protected $primaryKey = 'kd_dosen';
+
+    public $incrementing = false;
+
+    // In Laravel 6.0+ make sure to also set $keyType
+    protected $keyType = 'string';
 
 
     // public function prodi()

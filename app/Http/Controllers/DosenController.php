@@ -27,9 +27,9 @@ class DosenController extends Controller
             return view('data.dosen');
     }
 
-    public function show($id)
+    public function show(Prodi $prodi)
     {
-        $where = array('id' => $id);
+        $where = array('kd_prodi' => $id);
         $where2 = array('kd_prodi'=>$id);
         $post  =  Prodi::with('dosen')->where($where)->get();
         $mahasiswa = Prodi::with('Mahasiswa')->where($where2)->get();

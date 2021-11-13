@@ -24,7 +24,7 @@
                   <table class="table table-striped table-bordered dt-responsive nowrap" id="table-dosen" style="width:100%">
                     <thead>
                     <tr>
-                        <th></th>
+                        <!-- <th></th> -->
                         <th>No</th>
                         <th>Kode</th>
                         <th>Nama</th>
@@ -109,10 +109,11 @@
                     url: "{{ route('dosen.index') }}",
                     type: 'GET'
                 },
-                columns: [{
-                        data: 'id', 
-                        name: 'id', 'visible': false
-                    },
+                columns: [
+                    // {
+                    //     data: 'id', 
+                    //     name: 'id', 'visible': false
+                    // },
                     {
                         data: 'DT_RowIndex', 
                         name: 'DT_RowIndex', orderable: false,searchable: false
@@ -138,7 +139,7 @@
                 ],
                 columnDefs: [
                     {
-                        targets: 2,
+                        targets: 1,
                         render: $.fn.dataTable.render.number('.', '.', 0, '00000')
                     }
                 ],
@@ -151,7 +152,7 @@
 
           //TOMBOL INFO DAN TAMPIKAN DATA BERDASARKAN ID kegiatan KE MODAL
       $(document).on("click", ".open-info", function () {
-        var info_id = $(this).data('id');
+        var info_id = $(this).data('nim');
         $.get('dosen/' + info_id , function(data){
             console.log(data.success[0].nama_dosen);
             $('#tampilkan-info').modal('show');
